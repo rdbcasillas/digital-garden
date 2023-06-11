@@ -1,27 +1,31 @@
 <template>
   <b-navbar
+    toggleable="lg"
     id="navbar"
     fixed="top"
     :class="{ 'navbar-scrolled': isScrolled }"
     type="transparent"
     variant="light"
   >
-    <b-navbar-brand href="#"> YourName </b-navbar-brand>
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+    <b-navbar-brand href="#"> Vatsal's Digital Garden </b-navbar-brand>
+    
+    <b-navbar-toggle target="nav-collapse" :toggler-class="'navbar-toggler-custom'">
+      <b-icon icon="menu-up"></b-icon>
+    </b-navbar-toggle>
+
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav class="ml-auto">
-        <b-nav-item href="#about" @click.prevent="smoothScroll('about')"
+        <b-nav-item to="#about" @click.prevent="smoothScroll('about')"
           >About</b-nav-item
         >
-        <b-nav-item href="#portfolio" @click.prevent="smoothScroll('portfolio')"
-          >Portfolio</b-nav-item
+        <b-nav-item to="coaching">Coaching</b-nav-item>
+        <b-nav-item to="background">Backstory</b-nav-item>
+        <!-- <b-nav-item href="#education" @click.prevent="smoothScroll('education')"
+          >Education</b-nav-item
         >
-        <b-nav-item href="#blog" @click.prevent="smoothScroll('blog')"
-          >Blog</b-nav-item
-        >
-        <b-nav-item href="#contact" @click.prevent="smoothScroll('contact')"
-          >Contact</b-nav-item
-        >
+        <b-nav-item href="#skills" @click.prevent="smoothScroll('skills')"
+          >Skills</b-nav-item
+        > -->
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -33,7 +37,16 @@ export default {
   data() {
     return {
       isScrolled: false,
+      isNavCollapsed: true,
     };
+  },
+  computed: {
+    isMobile() {
+      return window.innerWidth < 768;
+    },
+    shouldCollapse() {
+      return this.isMobile || this.isNavCollapsed;
+    },
   },
   methods: {
     smoothScroll(targetId) {
@@ -45,19 +58,25 @@ export default {
     window.addEventListener("scroll", () => {
       this.isScrolled = window.scrollY > 0;
     });
+
+    // Update isMobile when window size changes
+    window.addEventListener("resize", () => {
+      this.isMobile = window.innerWidth < 768;
+    });
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.isScrolled);
+    window.removeEventListener("resize", this.isMobile);
   },
 };
 </script>
 
 <style scoped>
-#navbar {
+/* #navbar {
   transition: all 0.3s;
   padding: 1rem;
   background: transparent;
-}
+} */
 
 .navbar-scrolled {
   background: rgba(0, 0, 0, 0.8);
@@ -66,4 +85,6 @@ export default {
 .b-nav-item {
   cursor: pointer;
 }
+
+
 </style>

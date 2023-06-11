@@ -4,14 +4,17 @@
       <b-row class="justify-content-center align-items-center hero-section">
         <b-col md="6">
           <img src="mypic.jpg" alt="Your image" class="img-fluid hero-image" />
-          <h1 class="display-4">Your Name</h1>
           <p class="lead">
-            Bioinformatician and a Software Developer with over 10 years of
-            experience specializing in NGS pipelines, web development and data
-            visualization. Skilled at delivering interactive tools for
-            researchers, that provide novel insights in healthcare sector and
-            biomedical sciences. Adept at learning new technologies
-            autodidactically and flexible with different tech stacks. Loves
+            With a career spanning over a decade as a Bioinformatician and
+            Software Developer, I have honed my expertise in the analysis and
+            interpretation of large-scale genomic data, web development, and
+            data visualization. My proficiency lies in crafting interactive
+            tools for researchers, offering groundbreaking insights in the
+            healthcare and biomedical sectors. My leadership skills, coupled
+            with a passion for building exceptional products, have been
+            instrumental in driving successful outcomes. I'm a lifelong learner,
+            swiftly adapting to diverse tech stacks and continuously picking up
+            new technologies. Outside of my professional pursuits, I indulge in
             <a href="http://rdbcasillas.github.io">writing</a>,
             <a href="https://open.spotify.com/show/79oICYy7ndxZIrQQWunirp"
               >podcasting</a
@@ -23,18 +26,15 @@
             >.
           </p>
           <p class="lead">
-            Occassionally, I also work with people directly to help with their
-            personal and professional issues using numerous
-            <a
-              href="https://www.lesswrong.com/posts/RcZCwxFiZzE6X7nsv/what-do-we-mean-by-rationality-1"
-              >instrumental rationality</a
-            >
-            techniques and frameworks (see projects section below for an
-            overview of my public work). If you are interested in a
-            coaching/career counselling session, please schedule a spot
+            On occasion, I extend my scope of work to engage with individuals
+            directly, aiding in their personal and professional development. I
+            employ a range of instrumental rationality techniques and frameworks
+            to help my clients navigate their challenges (you can explore an
+            overview of my public work in the projects section below). If you
+            are keen on scheduling a coaching or career counseling session, feel
+            free to book a spot
             <a href="https://calendly.com/vatsalmehra/60-min-chat">here</a>.
           </p>
-          <b-button variant="primary" href="#about">Learn More</b-button>
         </b-col>
       </b-row>
     </b-container>
@@ -48,15 +48,19 @@ export default {
 </script>
 
 <style scoped>
-.landing-page {
-  min-height: 100vh;
-  padding-top: 5rem;
-}
-
 .hero-section {
   height: 100%;
 }
 
+.skillset {
+  position: relative;
+  padding-bottom: 85.25%;
+  padding-top: 30px;
+  height: 800;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch; /*<<--- THIS IS THE KEY*/
+  border: solid black 1px;
+}
 .hero-image {
   max-width: 300px;
   margin-bottom: 2rem;
@@ -64,5 +68,12 @@ export default {
 }
 .lead {
   text-align: justify !important;
+}
+.skillimage {
+  max-width: 100%;
+  width: 1000px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid;
 }
 </style>

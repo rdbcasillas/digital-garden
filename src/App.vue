@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <NavBar />
-    <router-view />
+    <b-container class="maincontent">
+      <router-view />
+    </b-container>
   </div>
 </template>
 <script>
@@ -34,5 +36,9 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+.maincontent {
+  min-height: 200vh;
+  padding-top: 9rem;
 }
 </style>
